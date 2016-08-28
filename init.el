@@ -23,7 +23,11 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     helm
+     (auto-completion :variables
+      auto-completion-enable-help-tooltip t
+      auto-completion-enable-sort-by-usage t
+      auto-completion-tab-key-behavior 'complete)
      better-defaults
      emacs-lisp
      osx
@@ -46,7 +50,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(switch-window
-                                      smart-mode-line)
+                                      smart-mode-line
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -259,14 +264,18 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;;; set-mark-command setting begin
+  (global-set-key (kbd "C-SPC") nil)
   (global-set-key (kbd "C-@") 'set-mark-command)
-  ;;; set-mark-command setting end
 
-  ;;; powerline theme setting begin
+  ;;; powerline theme setting and smart-mode-line setting begin
   (setq powerline-default-separator 'nil)
-  (spaceline-compile)
-  ;;; powerline theme end
+  (with-eval-after-load 'spaceline-segments
+    (spaceline-toggle-minor-modes-off)
+    (setq sml/theme 'respectful)
+    (sml/setup)
+    (spaceline-compile)
+    )
+  ;;; powerline theme and smart-mode-line setting end
 
   ;;;  ycmd setting begin
   (setq company-backends-c-mode-common '((company-c-headers
@@ -278,6 +287,7 @@ you should place your code here."
 
   ;;; helm setting begin
   (ido-mode nil)
+(with-eval-after-load 'helm
   (unless (configuration-layer/package-usedp 'smex)
     (global-set-key (kbd "M-x") 'helm-M-x))
   (global-set-key (kbd "C-x C-f") 'spacemacs/helm-find-files)
@@ -287,6 +297,7 @@ you should place your code here."
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ;rebind tab to do persistent action
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ;make TAB works in terminal
   (define-key helm-map (kbd "C-z")  'helm-select-action) ;list actions using C-z
+  )
   ;;; helm setting end
 
   ;;; erc-mode setting begin
@@ -307,11 +318,6 @@ you should place your code here."
   (global-set-key (kbd "C-c C-+") 'zoom-frm-in)
   (global-set-key (kbd "C-c C--") 'zoom-frm-out)
   ;;; frame zoom function setting end
-
-  ;;; smart-mode-line setting begin
-  (setq sml/theme 'respectful)
-  (sml/setup)
-  ;;; smart-mode-line setting end
 
   ;;; toggle files setting begin
   (global-set-key (kbd "C-x x") 'ff-find-other-file)
@@ -353,7 +359,6 @@ you should place your code here."
                   (setq indent-tabs-mode t)
                   (c-set-style "linux-tabs-only")))))
   ;;; c-mode setting begin
-
   )
 
 (custom-set-variables
@@ -363,10 +368,10 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
  '(package-selected-packages
    (quote
-    (smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (smart-mode-line-powerline-theme uuidgen org-projectile org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
