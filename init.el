@@ -23,27 +23,55 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     ;; spacemacs base
      helm
-     (auto-completion :variables
-      auto-completion-enable-help-tooltip t
-      auto-completion-enable-sort-by-usage t
-      auto-completion-tab-key-behavior 'complete)
      better-defaults
-     emacs-lisp
      osx
-     git
-     markdown
-     org
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     shell-scripts
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     git
 
+     ;; text editing
+     markdown
+     org
+
+     ;; checkers
      spell-checking
-     syntax-checking
-     cscope
+     (syntax-checking
+      :variables
+      syntax-checking-enable-tooltips t)
+
+     ;; completion
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-tab-key-behavior 'complete)
      (ycmd :variables
            ycmd-server-command '("python" "/Users/shenxuhui/.bin/ycmd/ycmd")
            ycmd-force-semantic-completion t)
+
+     ;; web
+     (ruby :variables
+           ruby-enable-enh-ruby-mode t
+           ruby-version-manager 'rvm
+           ruby-test-runner 'rspec)
+     ruby-on-rails
+     html
+     javascript
+
+     ;; lisp
+     emacs-lisp
+     (clojure :variables clojure-enable-fancify-symbols t)
+
+     ;; c-c++
+     c-c++
+     cscope
+
+     ;; +chat
+     erc
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -266,6 +294,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (global-set-key (kbd "C-SPC") nil)
   (global-set-key (kbd "C-@") 'set-mark-command)
+  (global-set-key (kbd "C-c s") 'ace-swap-window)
+  (display-time)
 
   ;;; powerline theme setting and smart-mode-line setting begin
   (setq powerline-default-separator 'nil)
@@ -287,18 +317,16 @@ you should place your code here."
 
   ;;; helm setting begin
   (ido-mode nil)
-(with-eval-after-load 'helm
-  (unless (configuration-layer/package-usedp 'smex)
-    (global-set-key (kbd "M-x") 'helm-M-x))
-  (global-set-key (kbd "C-x C-f") 'spacemacs/helm-find-files)
-  (global-set-key (kbd "C-c f") 'helm-recentf)
-  (global-set-key (kbd "C-x b") 'helm-buffers-list)
-
-  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ;rebind tab to do persistent action
-  (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ;make TAB works in terminal
-  (define-key helm-map (kbd "C-z")  'helm-select-action) ;list actions using C-z
+  (with-eval-after-load 'helm
+    (global-set-key (kbd "C-c h o") 'helm-occur)
+    (global-set-key (kbd "C-c h i") 'helm-semantic-or-imenu)
+    (global-set-key (kbd "C-c f") 'helm-recentf)
   )
   ;;; helm setting end
+
+  ;;; checker setting begin
+  (setq flycheck-pos-tip-timeout 4)
+  ;;; checker setting end
 
   ;;; erc-mode setting begin
   (with-eval-after-load 'erc
@@ -369,9 +397,10 @@ you should place your code here."
  '(custom-safe-themes
    (quote
     ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
+ '(evil-want-Y-yank-to-eol t)
  '(package-selected-packages
    (quote
-    (smart-mode-line-powerline-theme uuidgen org-projectile org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (wgrep smex ivy-hydra ibuffer-projectile flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv projectile-rails rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-projectile org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
