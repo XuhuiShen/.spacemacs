@@ -292,10 +292,17 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;;; emacs base setting begin
   (global-set-key (kbd "C-SPC") nil)
   (global-set-key (kbd "C-@") 'set-mark-command)
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (display-time)
+  ;;; emacs base setting end
+
+  ;;; translate setting begin
+  (setq google-translate-default-source-language "en")
+  (setq google-translate-default-target-language "zh")
+  ;;; translate setting end
 
   ;;; powerline theme setting and smart-mode-line setting begin
   (setq powerline-default-separator 'nil)
