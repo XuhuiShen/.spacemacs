@@ -40,9 +40,8 @@ values."
 
      ;; checkers
      spell-checking
-     (syntax-checking
-      :variables
-      syntax-checking-enable-tooltips t)
+     (syntax-checking :variables syntax-checking-enable-by-default nil
+                      syntax-checking-enable-tooltips t)
 
      ;; completion
      (auto-completion :variables
