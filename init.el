@@ -422,10 +422,10 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(hl-line ((t (:background "#3C3C3C")) (t :weight bold)))
+ '(hl-line-face ((t (:background "#3C3C3C")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold))))
  '(isearch ((t (:foreground "#161616" :weight bold :background "#F6F6F6"))))
- '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D"))))
- '(hl-line-face ((t (:background "#3C3C3C")) (t :weight bold)))
- '(hl-line ((t (:background "#3C3C3C")) (t :weight bold)))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D")))))
