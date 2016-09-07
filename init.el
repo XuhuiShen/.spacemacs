@@ -434,8 +434,8 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(hl-line ((t (:background "#252525")) (t :weight bold)))
- '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
+ '(hl-line ((((class color) (min-colors 89)) (:background "#252525")) (t :weight bold)))
+ '(hl-line-face ((((class color) (min-colors 89)) (:background "#252525")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
  '(isearch ((t (:foreground "#161616" :weight bold :background "#F0F0F0"))))
  '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D")))))
