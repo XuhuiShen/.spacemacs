@@ -30,6 +30,7 @@ values."
      git
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      shell-scripts
+
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -79,8 +80,7 @@ values."
    dotspacemacs-additional-packages '(switch-window
                                       youdao-dictionary
                                       smart-mode-line
-                                      smart-mode-line-powerline-theme
-                                      )
+                                      smart-mode-line-powerline-theme)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -144,7 +144,7 @@ values."
                          monokai
                          zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
-   dotspacemacs-colorize-cursor-according-to-state nil
+   dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
@@ -300,6 +300,7 @@ you should place your code here."
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (global-set-key (kbd "C-x M-m") 'shell)
   (global-set-key (kbd "C-c w") 'subword-mode)
+  (global-set-key (kbd "C-c C-q") 'read-only-mode)
   (setq dotspacemacs-which-key-delay 1.7)
   (display-time)
   ;;; emacs base setting end
@@ -323,8 +324,7 @@ you should place your code here."
     ;; (setq dotspacemacs-mode-line-unicode-symbols nil)
     (spaceline-toggle-minor-modes-off)
     (setq sml/theme 'powerline)
-    (sml/setup)
-    )
+    (sml/setup))
   (spaceline-compile)
   ;;; powerline theme and smart-mode-line setting end
 
@@ -344,8 +344,7 @@ you should place your code here."
   (with-eval-after-load 'helm
     (global-set-key (kbd "C-c h o") 'helm-occur)
     (global-set-key (kbd "C-c h i") 'helm-semantic-or-imenu)
-    (global-set-key (kbd "C-c f") 'helm-recentf)
-    )
+    (global-set-key (kbd "C-c f") 'helm-recentf))
   ;;; helm setting end
 
   ;;; checker setting begin
@@ -356,8 +355,7 @@ you should place your code here."
   (with-eval-after-load 'erc
     (setq erc-ignore-list nil)
     (setq erc-hide-list
-          '("JOIN" "PART" "QUIT" "MODE"))
-    )
+          '("JOIN" "PART" "QUIT" "MODE")))
   ;;; erc-mode setting end
 
   ;;; switch-window setting begin
