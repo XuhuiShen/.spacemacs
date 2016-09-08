@@ -28,9 +28,9 @@ values."
      better-defaults
      osx
      git
+     fasd
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      shell-scripts
-
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -321,7 +321,6 @@ you should place your code here."
   (which-func-mode t)
   (setq powerline-default-separator 'nil)
   (with-eval-after-load 'spaceline-segments
-    ;; (setq dotspacemacs-mode-line-unicode-symbols nil)
     (spaceline-toggle-minor-modes-off)
     (setq sml/theme 'powerline)
     (sml/setup))
@@ -425,7 +424,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol t)
  '(package-selected-packages
    (quote
-    (auto-complete smartparens evil flycheck company helm helm-core markdown-mode projectile magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra ibuffer-projectile flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv projectile-rails rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-projectile org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (fasd grizzl auto-complete smartparens evil flycheck company helm helm-core markdown-mode projectile magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra ibuffer-projectile flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv projectile-rails rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-projectile org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(which-function-mode t))
 
@@ -434,11 +433,13 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
- ;; (("color-1" . "#050505") ("color-2" . "#080808") ("color-3" . "#0E0E0E") ("color-4" . "#161616") ("color-5" . "#252525") ("color-6" . "#3C3C3C") ("color-7" . "#616161") ("color-8" . "#9D9D9D") ("color-9" . "#C2C2C2") ("color-10" . "#D9D9D9") ("color-11" . "#E8E8E8") ("color-12" . "#F0F0F0") ("color-13" . "#F6F6F6") ("color-14" . "#F9F9F9"))
-
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(hl-line ((t (:background "#252525")) (t :weight bold)))
+ '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
+ '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
+ '(isearch ((t (:foreground "#161616" :weight bold :background "#F0F0F0"))))
+ '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D"))))
  '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
  '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
  '(powerline-active2 ((t (:inherit sml/global :background "Black"))))
@@ -446,14 +447,9 @@ you should place your code here."
  '(powerline-inactive2 ((t (:inherit font-lock-comment-face :background "Black"))))
  '(sml/filename ((((class color) (min-colors 89)) (:foreground "#F0DFAF" :weight bold))))
  '(sml/folder ((t (:inherit sml/global :background "Black" :foreground "Cyan" :weight normal))))
- '(sml/git ((t (:inherit (sml/read-only sml/prefix) :foreground "yellow"  :background "Black"))))
+ '(sml/git ((t (:inherit (sml/read-only sml/prefix) :foreground "yellow" :background "Black"))))
  '(sml/name-filling ((t (:inherit sml/prefix :background "Black" :weight normal))))
  '(sml/position-percentage ((t (:inherit sml/prefix :background "Black" :foreground "Black" :weight normal))))
  '(sml/prefix ((t (:inherit sml/global :background "Black" :foreground "Cyan"))))
  '(sml/vc ((t (:inherit sml/git :background "Black" :foreground "Cyan"))))
- '(sml/vc-edited ((t (:inherit sml/prefix :background "Black" :foreground "Cyan"))))
- '(hl-line ((t (:background "#252525")) (t :weight bold)))
- '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
- '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
- '(isearch ((t (:foreground "#161616" :weight bold :background "#F0F0F0"))))
- '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D")))))
+ '(sml/vc-edited ((t (:inherit sml/prefix :background "Black" :foreground "Cyan")))))
