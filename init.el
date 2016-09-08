@@ -453,6 +453,7 @@ you should place your code here."
  '(sml/position-percentage ((t (:inherit sml/prefix :background "Black" :foreground "Black" :weight normal))))
  '(sml/prefix ((t (:inherit sml/global :background "Black" :foreground "Cyan"))))
  '(sml/vc ((t (:inherit sml/git :background "Black" :foreground "Cyan"))))
+ '(sml/vc-edited ((t (:inherit sml/prefix :background "Black" :foreground "Cyan"))))
  '(hl-line ((t (:background "#252525")) (t :weight bold)))
  '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
