@@ -301,6 +301,7 @@ you should place your code here."
   (global-set-key (kbd "C-x M-m") 'shell)
   (global-set-key (kbd "C-c w") 'subword-mode)
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
+  (global-set-key (kbd "C-c j") 'fasd-find-file)
   (setq dotspacemacs-which-key-delay 1.7)
   (display-time)
   ;;; emacs base setting end
