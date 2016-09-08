@@ -78,6 +78,8 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(switch-window
                                       youdao-dictionary
+                                      smart-mode-line
+                                      smart-mode-line-powerline-theme
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -318,8 +320,10 @@ you should place your code here."
   (which-func-mode t)
   (setq powerline-default-separator 'nil)
   (with-eval-after-load 'spaceline-segments
-    (setq dotspacemacs-mode-line-unicode-symbols nil)
-    ;; (spaceline-toggle-minor-modes-off)
+    ;; (setq dotspacemacs-mode-line-unicode-symbols nil)
+    (spaceline-toggle-minor-modes-off)
+    (setq sml/theme 'powerline)
+    (sml/setup)
     )
   (spaceline-compile)
   ;;; powerline theme and smart-mode-line setting end
@@ -432,12 +436,25 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
+ ;; (("color-1" . "#050505") ("color-2" . "#080808") ("color-3" . "#0E0E0E") ("color-4" . "#161616") ("color-5" . "#252525") ("color-6" . "#3C3C3C") ("color-7" . "#616161") ("color-8" . "#9D9D9D") ("color-9" . "#C2C2C2") ("color-10" . "#D9D9D9") ("color-11" . "#E8E8E8") ("color-12" . "#F0F0F0") ("color-13" . "#F6F6F6") ("color-14" . "#F9F9F9"))
+
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(hl-line ((((class color) (min-colors 89)) (:background "#252525")) (t :weight bold)))
- '(hl-line-face ((((class color) (min-colors 89)) (:background "#252525")) (t :weight bold)))
+ '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
+ '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
+ '(powerline-active2 ((t (:inherit sml/global :background "Black"))))
+ '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "Black"))))
+ '(powerline-inactive2 ((t (:inherit font-lock-comment-face :background "Black"))))
+ '(sml/filename ((((class color) (min-colors 89)) (:foreground "#F0DFAF" :weight bold))))
+ '(sml/folder ((t (:inherit sml/global :background "Black" :foreground "Cyan" :weight normal))))
+ '(sml/git ((t (:inherit (sml/read-only sml/prefix) :foreground "yellow"  :background "Black"))))
+ '(sml/name-filling ((t (:inherit sml/prefix :background "Black" :weight normal))))
+ '(sml/position-percentage ((t (:inherit sml/prefix :background "Black" :foreground "Black" :weight normal))))
+ '(sml/prefix ((t (:inherit sml/global :background "Black" :foreground "Cyan"))))
+ '(sml/vc ((t (:inherit sml/git :background "Black" :foreground "Cyan"))))
+ '(hl-line ((t (:background "#252525")) (t :weight bold)))
+ '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
  '(isearch ((t (:foreground "#161616" :weight bold :background "#F0F0F0"))))
  '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D")))))
-
-;; (("color-1" . "#050505") ("color-2" . "#080808") ("color-3" . "#0E0E0E") ("color-4" . "#161616") ("color-5" . "#252525") ("color-6" . "#3C3C3C") ("color-7" . "#616161") ("color-8" . "#9D9D9D") ("color-9" . "#C2C2C2") ("color-10" . "#D9D9D9") ("color-11" . "#E8E8E8") ("color-12" . "#F0F0F0") ("color-13" . "#F6F6F6") ("color-14" . "#F9F9F9"))
