@@ -123,7 +123,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner '999
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
@@ -319,7 +319,7 @@ you should place your code here."
 
   ;;; powerline theme setting and smart-mode-line setting begin
   (which-func-mode t)
-  (setq powerline-default-separator 'nil)
+  (setq powerline-default-separator 'arrow)
   (with-eval-after-load 'spaceline-segments
     (spaceline-toggle-minor-modes-off)
     (setq sml/theme 'powerline)
