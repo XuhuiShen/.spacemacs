@@ -304,20 +304,21 @@ you should place your code here."
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
   (global-set-key (kbd "C-c j") 'fasd-find-file)
   (global-set-key (kbd "C-c e") 'iedit-mode)
+  (setq undo-tree-visualizer-diff nil)
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
   (display-time)
   ;;; emacs base setting end
 
   ;;; org setting begin
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((sh . t)
-     (ruby . t)
-     (C . t)
-     ))
   (with-eval-after-load 'org
-    (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀")))
+    (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀"))
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((sh . t)
+       (ruby . t)
+       (C . t)
+       )))
   ;;; org setting end
 
   ;;; hs function setting begin
