@@ -124,7 +124,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner '999
+   dotspacemacs-startup-banner 'nil
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
@@ -284,15 +284,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default dotspacemacs-themes '(tao-yin))
   (setq exec-path-from-shell-arguments '("-l"))
+  (setq-default dotspacemacs-startup-banner '"~/.spacemacs.d/banners/assassin.png")
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
-
-
-This is the place where most of your configurations should be done. Unless it is
+  This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;;; emacs base setting begin
@@ -440,6 +439,8 @@ you should place your code here."
    (quote
     ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
  '(evil-want-Y-yank-to-eol t)
+ '(org-agenda-files (quote ("~/Workspace/github.io/todo.org")))
+ '(org-todo-keywords (quote ((sequence "TODO(t)" "DONE(d)"))))
  '(package-selected-packages
    (quote
     (helm-gtags ggtags fasd grizzl auto-complete smartparens evil flycheck company helm helm-core markdown-mode projectile magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra ibuffer-projectile flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv projectile-rails rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-projectile org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
@@ -453,14 +454,14 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(org-done ((t (:bold t :background nil :foreground "green" :weight bold))))
- '(org-todo ((t (:bold t :background nil :foreground "OrangeRed" :weight bold))))
  '(hl-line ((t (:background "#252525")) (t :weight bold)))
  '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
  '(isearch ((t (:foreground "#161616" :weight bold :background "#F0F0F0"))))
  '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D"))))
  '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
+ '(org-done ((t (:bold t :background nil :foreground "green" :weight bold))))
+ '(org-todo ((t (:bold t :background nil :foreground "OrangeRed" :weight bold))))
  '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
  '(powerline-active2 ((t (:inherit sml/global :background "Black"))))
  '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "Black"))))
