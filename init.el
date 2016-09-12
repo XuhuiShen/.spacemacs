@@ -273,7 +273,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -309,6 +309,13 @@ you should place your code here."
   (setq op/confound-email nil)
   (display-time)
   ;;; emacs base setting end
+
+  ;;; whitespace setting begin
+  (setq whitespace-line-column 80)
+  (setq whitespace-style '(face lines-tail))
+  (add-hook 'c-mode-hook 'whitespace-mode)
+  (add-hook 'c++-mode-hook 'whitespace-mode)
+  ;;; whitespace setting end
 
   ;;; org setting begin
   (with-eval-after-load 'org
@@ -455,6 +462,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(whitespace-line ((t (:background nil :foreground "IndianRed"))))
  '(hl-line ((t (:background "#252525")) (t :weight bold)))
  '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
