@@ -27,7 +27,6 @@ values."
      helm
      better-defaults
      osx
-     git
      fasd
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      shell-scripts
@@ -73,6 +72,12 @@ values."
 
      ;; +chat
      erc
+
+     ;; source control
+     git
+     ;; github
+     ;; (version-control :variables version-control-diff-tool 'git-gutter+
+     ;;                  version-control-global-margin t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -310,12 +315,12 @@ you should place your code here."
   (display-time)
   ;;; emacs base setting end
 
-  ;;; whitespace setting begin
+  ;;; whitespace mode setting begin
   (setq whitespace-line-column 80)
   (setq whitespace-style '(face lines-tail))
   (add-hook 'c-mode-hook 'whitespace-mode)
   (add-hook 'c++-mode-hook 'whitespace-mode)
-  ;;; whitespace setting end
+  ;;; whitespace mode setting end
 
   ;;; org setting begin
   (with-eval-after-load 'org
@@ -463,6 +468,7 @@ you should place your code here."
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(whitespace-line ((t (:background nil :foreground "IndianRed"))))
+ '(company-tooltip-annotation ((t (:inherit nil :background nil :foreground "SteelBlue"))))
  '(hl-line ((t (:background "#252525")) (t :weight bold)))
  '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
