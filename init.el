@@ -318,7 +318,8 @@ you should place your code here."
   ;;; whitespace mode setting begin
   (setq whitespace-line-column 80)
   (setq whitespace-style '(face lines-tail))
-  (add-hook 'c-mode-base-map 'whitespace-mode)
+  (add-hook 'c-mode-hook 'whitespace-mode)
+  (add-hook 'c++-mode-hook 'whitespace-mode)
   ;;; whitespace mode setting end
 
   ;;; org setting begin
@@ -356,7 +357,7 @@ you should place your code here."
   (spaceline-compile)
   ;;; powerline theme and smart-mode-line setting end
 
-  ;;;  ycmd setting begin
+  ;;;  cscope and ycmd setting begin
   (setq url-show-status nil)
   (setq request-message-level -1)
   (set-variable 'ycmd-extra-conf-whitelist '("~/Workspace/c/*"))
@@ -367,9 +368,18 @@ you should place your code here."
   (add-hook 'js2-mode-hook 'ycmd-mode)
   (setq company--auto-completion t
         company-show-numbers t)
-  (define-key c-mode-base-map (kbd "C-c y g")  'ycmd-goto)
-  (define-key c-mode-base-map (kbd "C-c y d")  'ycmd-goto-definition)
-  ;;;  ycmd setting end
+  (define-key global-map (kbd "C-c y g")  'ycmd-goto)
+  (define-key global-map (kbd "C-c y d")  'ycmd-goto-definition)
+  ;; cscope and some ycmd keybinding
+  (add-hook 'c-mode-common-hook 'helm-cscope-mode)
+  (with-eval-after-load 'cc-mode
+    (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
+    (define-key c-mode-base-map (kbd "C-c g g")  'helm-cscope-find-global-definition)
+    (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-called-function)
+    ;; funtcion != function the bug of spelling. Here uses g(c) and G(C) for convenience.
+    (define-key c-mode-base-map (kbd "C-c g C")  'helm-cscope-find-calling-this-funtcion)
+    )
+  ;;; cscope and ycmd setting end
 
   ;;; helm setting begin
   (ido-mode nil)
@@ -404,15 +414,6 @@ you should place your code here."
   ;;; toggle files setting begin
   (global-set-key (kbd "C-c x") 'ff-find-other-file)
   ;;; toggle files setting end
-
-  ;;; cscope setting begin
-  (add-hook 'c-mode-common-hook 'helm-cscope-mode)
-  (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
-  (define-key c-mode-base-map (kbd "C-c g g")  'helm-cscope-find-global-definition)
-  (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-called-function)
-  ;; funtcion != function the bug of spelling. Here uses g(c) and G(C) for convenience.
-  (define-key c-mode-base-map (kbd "C-c g C")  'helm-cscope-find-calling-this-funtcion)
-  ;;; cscope setting end
 
   ;;; c-mode setting begin
   (defun c-lineup-arglist-tabs-only (ignored)
