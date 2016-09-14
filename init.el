@@ -368,6 +368,8 @@ you should place your code here."
   (add-hook 'js2-mode-hook 'ycmd-mode)
   (setq company--auto-completion t
         company-show-numbers t)
+  (define-key c-mode-base-map (kbd "C-c y g")  'ycmd-goto)
+  (define-key c-mode-base-map (kbd "C-c y d")  'ycmd-goto-definition)
   ;;;  ycmd setting end
 
   ;;; helm setting begin
@@ -406,11 +408,11 @@ you should place your code here."
 
   ;;; cscope setting begin
   (add-hook 'c-mode-common-hook 'helm-cscope-mode)
-  (define-key global-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
-  (define-key global-map (kbd "C-c g d")  'helm-cscope-find-global-definition)
-  (define-key global-map (kbd "C-c g g")  'helm-cscope-find-called-function)
+  (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
+  (define-key c-mode-base-map (kbd "C-c g g")  'helm-cscope-find-global-definition)
+  (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-called-function)
   ;; funtcion != function the bug of spelling. Here uses g(c) and G(C) for convenience.
-  (define-key global-map (kbd "C-c g G")  'helm-cscope-find-calling-this-funtcion)
+  (define-key c-mode-base-map (kbd "C-c g C")  'helm-cscope-find-calling-this-funtcion)
   ;;; cscope setting end
 
   ;;; c-mode setting begin
