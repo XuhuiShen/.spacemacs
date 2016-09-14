@@ -318,8 +318,7 @@ you should place your code here."
   ;;; whitespace mode setting begin
   (setq whitespace-line-column 80)
   (setq whitespace-style '(face lines-tail))
-  (add-hook 'c-mode-hook 'whitespace-mode)
-  (add-hook 'c++-mode-hook 'whitespace-mode)
+  (add-hook 'c-mode-base-map 'whitespace-mode)
   ;;; whitespace mode setting end
 
   ;;; org setting begin
