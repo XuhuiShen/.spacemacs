@@ -471,6 +471,7 @@ you should place your code here."
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(company-tooltip-selection ((t (:foreground "White" :background "#252525"))))
+ '(git-gutter+-modified ((t (:foreground "gray" :weight bold))))
  '(hl-line ((t (:background "#252525")) (t :weight bold)))
  '(hl-line-face ((t (:background "#252525")) (t :weight bold)))
  '(hl-paren-face ((t (:foreground "#F0F0F0" :wight bold :background nil))) t)
