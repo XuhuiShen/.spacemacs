@@ -339,12 +339,13 @@ you should place your code here."
         (quote (("t" "todo" entry (file "~/Workspace/org/notes.org")
                  "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
                 ("n" "note" entry (file "~/Workspace/org/notes.org")
-                 "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-                ("j" "Journal" entry (file+datetree "~/Workspace/org/notes.org")
+                 "* %? :note:\n%U\n%a\n" :clock-in t :clock-resume t)
+                ("j" "journal" entry (file+datetree "~/Workspace/org/notes.org")
                  "* %?\n%U\n" :clock-in t :clock-resume t)
-                ("p" "Phone call" entry (file "~/Workspace/org/notes.org")
-                 "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+                ("p" "phone call" entry (file "~/Workspace/org/notes.org")
+                 "* phone %? :phone:\n%U" :clock-in t :clock-resume t)
                 )))
+  (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
   (with-eval-after-load 'org
     (org-babel-do-load-languages
      'org-babel-load-languages
