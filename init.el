@@ -323,6 +323,8 @@ you should place your code here."
   ;;; whitespace mode setting end
 
   ;;; org setting begin
+  (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                   (org-agenda-files :maxlevel . 9))))
   (setq org-directory "~/Workspace/org")
   (setq org-default-notes-file "notes.org")
   (setq org-agenda-files (quote ("~/Workspace/org")))
@@ -487,6 +489,7 @@ you should place your code here."
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(company-tooltip-selection ((t (:foreground "White" :background "#252525"))))
+ '(org-checkbox ((t (:background nil))))
  '(org-checkbox-statistics-done ((t (:foreground "White" :background nil))))
  '(org-checkbox-statistics-todo ((t (:foreground "White" :background nil))))
  '(git-gutter+-modified ((t (:foreground "gray" :weight bold))))
