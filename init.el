@@ -355,12 +355,6 @@ you should place your code here."
        )))
   ;;; org setting end
 
-  ;;; hs function setting begin
-  ;; h means hide, o means open
-  (global-set-key (kbd "C-c M-h") 'hs-hide-block)
-  (global-set-key (kbd "C-c M-o") 'hs-show-block)
-  ;;; hs function setting end
-
   ;;; translate setting begin
   (setq google-translate-default-source-language "en")
   (setq google-translate-default-target-language "zh")
@@ -394,11 +388,17 @@ you should place your code here."
   (add-hook 'c-mode-common-hook 'helm-cscope-mode)
   (with-eval-after-load 'cc-mode
     (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
-    (define-key c-mode-base-map (kbd "C-c g g")  'helm-cscope-find-global-definition)
-    (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-called-function)
+    (define-key c-mode-base-map (kbd "C-c g d")  'helm-cscope-find-global-definition)
+    (define-key c-mode-base-map (kbd "C-c g C")  'helm-cscope-find-called-function)
     ;; funtcion != function the bug of spelling. Here uses g(c) and G(C) for convenience.
-    (define-key c-mode-base-map (kbd "C-c g C")  'helm-cscope-find-calling-this-funtcion))
+    (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-calling-this-funtcion))
   ;;; cscope and ycmd setting end
+
+  ;;; hs function setting begin
+  ;; h means hide, s means show
+  (global-set-key (kbd "C-c h h") 'hs-hide-block)
+  (global-set-key (kbd "C-c h s") 'hs-show-block)
+  ;;; hs function setting end
 
   ;;; helm setting begin
   (ido-mode nil)
