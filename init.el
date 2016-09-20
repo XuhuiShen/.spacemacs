@@ -528,4 +528,4 @@ you should place your code here."
  '(rainbow-delimiters-depth-11-face ((t (:foreground "#F9F9F9"))))
  '(rainbow-delimiters-depth-12-face ((t (:foreground "#F9F9F9"))))
  '(font-lock-string-face ((t (:foreground "#C2C2C2" :slant oblique))))
- )
+ '(font-lock-constant-face ((t (:foreground "#F0F0F0" :weight bold)))))
