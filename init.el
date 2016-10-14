@@ -313,6 +313,8 @@ you should place your code here."
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
   (display-time)
+  (projectile-mode t)
+  (setq paradox-github-token "b1cfe777e1a06371f53dbd834b7f9456a3766dd1") ;; paradox is a enhanced packages list.
   ;;; emacs base setting end
 
   ;;; whitespace mode setting begin
@@ -323,30 +325,30 @@ you should place your code here."
   ;;; whitespace mode setting end
 
   ;;; org setting begin
-  (setq org-refile-targets (quote ((nil :maxlevel . 9)
-                                   (org-agenda-files :maxlevel . 9))))
-  (setq org-directory "~/Workspace/org")
-  (setq org-default-notes-file "notes.org") ;; for org capture
-  (setq org-agenda-files (quote ("~/Workspace/org")))
-  (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀"))
-  (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
-  (setq org-todo-keyword-faces
-        (quote (("TODO" :foreground "OrangeRed" :weight bold)
-                ("DONE" :foreground "green" :weight bold)
-                ("CANCELLED" :foreground "RoyalBlue" :weight bold)
-                )))
-  (setq org-capture-templates
-        (quote (("t" "todo" entry (file "~/Workspace/org/notes.org")
-                 "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-                ("n" "note" entry (file "~/Workspace/org/notes.org")
-                 "* %? :note:\n%U\n%a\n" :clock-in t :clock-resume t)
-                ("j" "journal" entry (file+datetree "~/Workspace/org/notes.org")
-                 "* %?\n%U\n" :clock-in t :clock-resume t)
-                ("p" "phone call" entry (file "~/Workspace/org/notes.org")
-                 "* phone %? :phone:\n%U" :clock-in t :clock-resume t)
-                )))
-  (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
   (with-eval-after-load 'org
+    (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                     (org-agenda-files :maxlevel . 9))))
+    (setq org-directory "~/Workspace/org")
+    (setq org-default-notes-file "notes.org") ;; for org capture
+    (setq org-agenda-files (quote ("~/Workspace/org")))
+    (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀"))
+    (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
+    (setq org-todo-keyword-faces
+          (quote (("TODO" :foreground "OrangeRed" :weight bold)
+                  ("DONE" :foreground "green" :weight bold)
+                  ("CANCELLED" :foreground "RoyalBlue" :weight bold)
+                  )))
+    (setq org-capture-templates
+          (quote (("t" "todo" entry (file "~/Workspace/org/notes.org")
+                   "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+                  ("n" "note" entry (file "~/Workspace/org/notes.org")
+                   "* %? :note:\n%U\n%a\n" :clock-in t :clock-resume t)
+                  ("j" "journal" entry (file+datetree "~/Workspace/org/notes.org")
+                   "* %?\n%U\n" :clock-in t :clock-resume t)
+                  ("p" "phone call" entry (file "~/Workspace/org/notes.org")
+                   "* phone %? :phone:\n%U" :clock-in t :clock-resume t)
+                  )))
+    (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((sh . t)
@@ -454,8 +456,8 @@ you should place your code here."
                            c-lineup-arglist-tabs-only))))))
   (add-hook 'c-mode-hook
             (lambda ()
-                  (setq indent-tabs-mode t)
-                  (c-set-style "linux-tabs-only")))
+              (setq indent-tabs-mode t)
+              (c-set-style "linux-tabs-only")))
   ;;; c-mode setting begin
   )
 
@@ -472,7 +474,8 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol t)
  '(package-selected-packages
    (quote
-    (git-commit magit-popup iedit undo-tree yasnippet async s pug-mode minitest dockerfile-mode docker tablist docker-tramp minimal-theme magit-gh-pulls github-search github-clone github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht diff-hl helm-gtags ggtags fasd grizzl auto-complete smartparens evil flycheck company helm helm-core markdown-mode projectile magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra ibuffer-projectile flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv projectile-rails rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-projectile org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (xterm-color powerline org alert log4e gntp parent-mode projectile gitignore-mode flx anzu goto-chg diminish request pos-tip highlight projectile-rails org-projectile ibuffer-projectile helm-projectile git-commit magit-popup iedit undo-tree yasnippet async s pug-mode minitest dockerfile-mode docker tablist docker-tramp minimal-theme magit-gh-pulls github-search github-clone github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht diff-hl helm-gtags ggtags fasd grizzl auto-complete smartparens evil flycheck company helm helm-core markdown-mode magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(paradox-automatically-star t)
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(which-function-mode t))
 
@@ -495,10 +498,12 @@ you should place your code here."
  '(js2-external-variable ((t (:foreground "#F0F0F0" :underline nil))))
  '(js2-function-call ((t (:foreground "#F0F0F0" :underline nil))))
  '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#9D9D9D"))))
+ '(markdown-header-delimiter-face ((t (:weight normal :foreground "#9D9D9D)"))))
+ '(markdown-markup-face ((t (:foreground "#E8E8E8"))))
  '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
  '(org-checkbox ((t (:background nil))))
- '(org-checkbox-statistics-done ((t (:foreground "White" :background nil))) t)
- '(org-checkbox-statistics-todo ((t (:foreground "White" :background nil))) t)
+ '(org-checkbox-statistics-done ((t (:foreground "White" :background nil))))
+ '(org-checkbox-statistics-todo ((t (:foreground "White" :background nil))))
  '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
  '(powerline-active2 ((t (:inherit sml/global :background "Black"))))
  '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "Black"))))
