@@ -325,30 +325,30 @@ you should place your code here."
   ;;; whitespace mode setting end
 
   ;;; org setting begin
+  (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                   (org-agenda-files :maxlevel . 9))))
+  (setq org-directory "~/Workspace/org")
+  (setq org-default-notes-file "notes.org") ;; for org capture
+  (setq org-agenda-files (quote ("~/Workspace/org")))
+  (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀"))
+  (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
+  (setq org-todo-keyword-faces
+        (quote (("TODO" :foreground "OrangeRed" :weight bold)
+                ("DONE" :foreground "green" :weight bold)
+                ("CANCELLED" :foreground "RoyalBlue" :weight bold)
+                )))
+  (setq org-capture-templates
+        (quote (("t" "todo" entry (file "~/Workspace/org/notes.org")
+                 "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+                ("n" "note" entry (file "~/Workspace/org/notes.org")
+                 "* %? :note:\n%U\n%a\n" :clock-in t :clock-resume t)
+                ("j" "journal" entry (file+datetree "~/Workspace/org/notes.org")
+                 "* %?\n%U\n" :clock-in t :clock-resume t)
+                ("p" "phone call" entry (file "~/Workspace/org/notes.org")
+                 "* phone %? :phone:\n%U" :clock-in t :clock-resume t)
+                )))
+  (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
   (with-eval-after-load 'org
-    (setq org-refile-targets (quote ((nil :maxlevel . 9)
-                                     (org-agenda-files :maxlevel . 9))))
-    (setq org-directory "~/Workspace/org")
-    (setq org-default-notes-file "notes.org") ;; for org capture
-    (setq org-agenda-files (quote ("~/Workspace/org")))
-    (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀"))
-    (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
-    (setq org-todo-keyword-faces
-          (quote (("TODO" :foreground "OrangeRed" :weight bold)
-                  ("DONE" :foreground "green" :weight bold)
-                  ("CANCELLED" :foreground "RoyalBlue" :weight bold)
-                  )))
-    (setq org-capture-templates
-          (quote (("t" "todo" entry (file "~/Workspace/org/notes.org")
-                   "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-                  ("n" "note" entry (file "~/Workspace/org/notes.org")
-                   "* %? :note:\n%U\n%a\n" :clock-in t :clock-resume t)
-                  ("j" "journal" entry (file+datetree "~/Workspace/org/notes.org")
-                   "* %?\n%U\n" :clock-in t :clock-resume t)
-                  ("p" "phone call" entry (file "~/Workspace/org/notes.org")
-                   "* phone %? :phone:\n%U" :clock-in t :clock-resume t)
-                  )))
-    (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((sh . t)
