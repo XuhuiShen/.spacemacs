@@ -67,7 +67,7 @@ values."
      (clojure :variables clojure-enable-fancify-symbols t)
      c-c++
 
-     ;; code jump
+     ;; tags
      cscope
      (gtags :disabled-for go)
 
