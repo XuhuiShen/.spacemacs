@@ -135,7 +135,7 @@ values."
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
    ;; dotspacemacs-startup-lists '(recents projects)
-   dotspacemacs-startup-lists '(todos recents projects)
+   dotspacemacs-startup-lists '(agenda todos recents projects)
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
    dotspacemacs-startup-recent-list-size 5
