@@ -47,7 +47,7 @@
       (text-2 "#858D8A")
       (text-3 "#41535B")
       (text-4 "#2F3C42")
-      (text-highlight "##F0F0F0")
+      (text-highlight nil)
       (text-region "#434546")
       (text-dired "#A0A0A0")
       (input-text "#CCCCCC")
