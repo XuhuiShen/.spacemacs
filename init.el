@@ -485,10 +485,10 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(company-tooltip-annotation ((t (:inherit nil :background nil :foreground "ForestGreen"))))
- ;; '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- ;; '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- ;; '(company-tooltip-selection ((t (:foreground "White" :background "#252525"))))
+ '(company-tooltip-annotation ((t (:inherit nil :background nil :foreground "ForestGreen"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(company-tooltip-selection ((t (:foreground "White" :background "#252525"))))
  '(git-gutter+-modified ((t (:foreground "gray" :weight bold))))
  '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
  '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
