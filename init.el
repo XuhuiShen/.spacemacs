@@ -310,6 +310,7 @@ you should place your code here."
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
   (global-set-key (kbd "C-c j") 'fasd-find-file)
   (global-set-key (kbd "C-c e") 'iedit-mode)
+  (global-set-key (kbd "C-x w") 'golden-ratio-mode)
   (setq undo-tree-visualizer-diff nil)
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
