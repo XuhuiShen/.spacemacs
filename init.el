@@ -41,7 +41,7 @@ values."
 
      ;; checkers
      (spell-checking :variables spell-checking-enable-by-default t)
-     (syntax-checking :variables syntax-checking-enable-by-default nil
+     (syntax-checking :variables syntax-checking-enable-by-default t
                       syntax-checking-enable-tooltips t)
 
      ;; completion
@@ -518,5 +518,5 @@ you should place your code here."
  '(sml/prefix ((t (:inherit sml/global :background "Black" :foreground "Cyan"))))
  '(sml/vc ((t (:inherit sml/git :background "Black" :foreground "Cyan"))))
  '(sml/vc-edited ((t (:inherit sml/prefix :background "Black" :foreground "Cyan"))))
- '(which-func ((t (:foreground "forest green"))))
+ '(which-func ((t (:foreground "Springgreen2"))))
  '(whitespace-line ((t (:background nil :foreground "IndianRed")))))
