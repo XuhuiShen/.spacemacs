@@ -90,7 +90,7 @@ values."
                                       smart-mode-line
                                       smart-mode-line-powerline-theme)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(helm-dash)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -317,10 +317,10 @@ you should place your code here."
   (setq undo-tree-visualizer-diff nil)
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
-  (display-time)
-  (projectile-mode t)
   (setq paradox-github-token "b1cfe777e1a06371f53dbd834b7f9456a3766dd1") ;; paradox is a enhanced packages list.
   (setq persp-auto-save-opt 0)
+  (projectile-mode t)
+  (display-time)
   ;;; emacs base setting end
 
   ;;; whitespace mode setting begin
