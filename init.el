@@ -314,6 +314,7 @@ you should place your code here."
   (global-set-key (kbd "C-c r") 'rename-buffer)
   (global-set-key (kbd "C-c m") 'helm-mark-ring)
   (global-set-key (kbd "C-c k") 'helm-show-kill-ring)
+  (global-set-key (kbd "C-c n") 'git-gutter+-next-hunk)
   (setq undo-tree-visualizer-diff nil)
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
