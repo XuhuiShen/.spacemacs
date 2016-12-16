@@ -393,7 +393,8 @@ you should place your code here."
         company-show-numbers t)
   (define-key global-map (kbd "C-c y g")  'ycmd-goto)
   (define-key global-map (kbd "C-c y d")  'ycmd-goto-definition)
-  ;; cscope and some ycmd keybinding
+  (define-key global-map (kbd "C-c y l")  'ycmd-load-conf-file)
+  ;; cscope and some ycmd key binding
   (add-hook 'c-mode-common-hook 'helm-cscope-mode)
   (with-eval-after-load 'cc-mode
     (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
