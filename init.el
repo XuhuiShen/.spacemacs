@@ -305,9 +305,9 @@ you should place your code here."
   ;;; emacs base setting begin
   (global-unset-key (kbd "C-x m"))
   (global-set-key (kbd "C-SPC") nil)
-  (global-set-key (kbd "C-m") nil)
-  (global-set-key (kbd "C-m") 'set-mark-command)
-  (global-set-key (kbd "C-x C-m") 'pop-global-mark)
+  (global-set-key (kbd "C-j") nil)
+  (global-set-key (kbd "C-j") 'set-mark-command)  ;; why j? because j looks like a fish hook, fucking g80-3000.
+  (global-set-key (kbd "C-x C-j") 'pop-global-mark)
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (global-set-key (kbd "C-x M-m") 'shell)
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
