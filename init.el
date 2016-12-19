@@ -307,6 +307,7 @@ you should place your code here."
   (global-set-key (kbd "C-SPC") nil)
   (global-set-key (kbd "C-m") nil)
   (global-set-key (kbd "C-m") 'set-mark-command)
+  (global-set-key (kbd "C-x C-m") 'pop-global-mark)
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (global-set-key (kbd "C-x M-m") 'shell)
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
