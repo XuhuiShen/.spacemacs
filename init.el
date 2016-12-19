@@ -303,8 +303,10 @@ layers configuration.
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;;; emacs base setting begin
+  (global-unset-key (kbd "C-x m"))
   (global-set-key (kbd "C-SPC") nil)
-  (global-set-key (kbd "C-@") 'set-mark-command)
+  (global-set-key (kbd "C-m") nil)
+  (global-set-key (kbd "C-m") 'set-mark-command)
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (global-set-key (kbd "C-x M-m") 'shell)
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
@@ -317,7 +319,6 @@ you should place your code here."
   (global-set-key (kbd "C-c k") 'helm-show-kill-ring)
   (global-set-key (kbd "C-c n") 'git-gutter+-next-hunk)
   (global-set-key (kbd "C-x n e") 'flycheck-next-error)
-  (global-unset-key (kbd "C-x m"))
   (setq undo-tree-visualizer-diff nil)
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
