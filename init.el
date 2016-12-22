@@ -220,7 +220,7 @@ values."
    dotspacemacs-enable-paste-micro-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-delay 1
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
@@ -305,9 +305,6 @@ you should place your code here."
   ;;; emacs base setting begin
   (global-unset-key (kbd "C-x m"))
   (global-set-key (kbd "C-SPC") nil)
-  (global-set-key (kbd "C-j") nil)
-  (global-set-key (kbd "C-j") 'set-mark-command)  ;; why j? because j looks like a fish hook, fucking g80-3000.
-  (global-set-key (kbd "C-x C-j") 'pop-global-mark)
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (global-set-key (kbd "C-x M-m") 'shell)
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
