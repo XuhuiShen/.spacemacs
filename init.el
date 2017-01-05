@@ -24,16 +24,17 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; spacemacs base
+     helm
      dash
      better-defaults
      osx
      fasd
+     docker
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      shell-scripts
      (shell :variables
             shell-default-height 30
             shell-default-position 'right)
-     docker
 
      ;; text editing
      markdown
@@ -41,7 +42,7 @@ values."
 
      ;; checkers
      (spell-checking :variables spell-checking-enable-by-default t)
-     (syntax-checking :variables syntax-checking-enable-by-default t
+     (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips t)
 
      ;; completion
@@ -79,7 +80,6 @@ values."
      github
      (version-control :variables version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
-     helm
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -150,8 +150,6 @@ values."
                          spacemacs-light
                          solarized-light
                          solarized-dark
-                         leuven
-                         monokai
                          zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
