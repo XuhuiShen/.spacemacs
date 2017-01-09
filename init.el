@@ -48,7 +48,8 @@ values."
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
-                      auto-completion-tab-key-behavior 'complete)
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-enable-snippets-in-popup nil)
      (ycmd :variables
            ycmd-server-command '("python" "/Users/shenxuhui/.bin/ycmd/ycmd")
            ycmd-force-semantic-completion t)
@@ -389,8 +390,7 @@ you should place your code here."
   (setq request-message-level -1)
   (set-variable 'ycmd-extra-conf-whitelist '("~/Workspace/c/*"))
   (setq company-backends-c-mode-common '((company-c-headers
-                                          company-ycmd
-                                          company-dabbrev :with company-yasnippet)))
+                                          company-ycmd)))
   (add-hook 'c-mode-hook 'ycmd-mode)
   (add-hook 'js2-mode-hook 'ycmd-mode)
   (setq company--auto-completion t
