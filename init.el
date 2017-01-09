@@ -33,8 +33,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'right)
-     (dash :variables
-           helm-dash-docset-newpath "/Users/shenxuhui/Library/Application Support/Dash/DocSets")
+     dash
 
      ;; text editing
      markdown
@@ -325,6 +324,7 @@ you should place your code here."
   (setq op/confound-email nil)
   (setq paradox-github-token "b1cfe777e1a06371f53dbd834b7f9456a3766dd1") ;; paradox is a enhanced packages list.
   (setq persp-auto-save-opt 0)
+  (setq helm-dash-browser-func 'eww)
   (projectile-mode t)
   (display-time)
   ;;; emacs base setting end
