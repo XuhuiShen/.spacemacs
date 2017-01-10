@@ -389,8 +389,6 @@ you should place your code here."
   (setq url-show-status nil)
   (setq request-message-level -1)
   (set-variable 'ycmd-extra-conf-whitelist '("~/Workspace/c/*"))
-  (setq company-backends-c-mode-common '((company-c-headers
-                                          company-ycmd)))
   (add-hook 'c-mode-hook 'ycmd-mode)
   (add-hook 'js2-mode-hook 'ycmd-mode)
   (setq company--auto-completion t
@@ -398,7 +396,6 @@ you should place your code here."
   (define-key global-map (kbd "C-c y g")  'ycmd-goto)
   (define-key global-map (kbd "C-c y d")  'ycmd-goto-definition)
   (define-key global-map (kbd "C-c y l")  'ycmd-load-conf-file)
-  ;; cscope and some ycmd key bindings
   (add-hook 'c-mode-common-hook 'helm-cscope-mode)
   (with-eval-after-load 'cc-mode
     (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
