@@ -314,7 +314,7 @@ you should place your code here."
   (global-set-key (kbd "C-c j") 'fasd-find-file)
   (global-set-key (kbd "C-c e") 'iedit-mode)
   (global-set-key (kbd "C-c w") 'subword-mode)
-  (global-set-key (kbd "C-x w") 'golden-ratio-mode)
+  (global-set-key (kbd "C-x g") 'spacemacs/toggle-golden-ratio)
   (global-set-key (kbd "C-c r") 'rename-buffer)
   (global-set-key (kbd "C-c m") 'helm-mark-ring)
   (global-set-key (kbd "C-c k") 'helm-show-kill-ring)
