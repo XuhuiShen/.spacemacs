@@ -476,79 +476,79 @@ you should place your code here."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-  (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(ansi-color-faces-vector
-     [default default default italic underline success warning error])
-   '(custom-safe-themes
-     (quote
-      ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
-   '(evil-want-Y-yank-to-eol t)
-   '(package-selected-packages
-     (quote
-      (org-page git mustache blog-admin ctable unfill xkcd wttrin tao-theme seti-theme 2048-game flappymacs typing-game sudoku helm-dash dash-at-point insert-shebang hide-comnt helm-purpose window-purpose imenu-list xterm-color powerline org alert log4e gntp parent-mode projectile gitignore-mode flx anzu goto-chg diminish request pos-tip highlight projectile-rails org-projectile ibuffer-projectile helm-projectile git-commit magit-popup iedit undo-tree yasnippet async s pug-mode minitest dockerfile-mode docker tablist docker-tramp minimal-theme magit-gh-pulls github-search github-clone github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht diff-hl helm-gtags ggtags fasd grizzl auto-complete smartparens evil flycheck company helm helm-core markdown-mode magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
-   '(paradox-automatically-star t)
-   '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838"))))
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(company-echo-common ((t (:foreground "#F6F6F6"))))
-   '(company-preview ((t (:background "#3C3C3C" :foreground "#E8E8E8"))))
-   '(company-preview-common ((t (:inherit company-preview :foreground "#F6F6F6" :weight bold))))
-   '(company-scrollbar-bg ((t (:inherit company-tooltip))))
-   '(company-scrollbar-fg ((t (:background "#616161"))))
-   '(company-tooltip ((t (:background "#3C3C3C" :foreground "#E8E8E8"))))
-   '(company-tooltip-annotation ((t (:foreground "Orange2"))))
-   '(company-tooltip-common ((t (:inherit company-tooltip :foreground "#E8E8E8" :weight bold :underline nil))))
-   '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#F6F6F6" :weight bold :underline nil))))
-   '(company-tooltip-selection ((t (:inherit company-tooltip :background "Steelblue3" :foreground "#252525"))))
-   '(erc-action-face ((t (:inherit erc-default-face))))
-   '(erc-bold-face ((t (:weight bold))))
-   '(erc-current-nick-face ((t (:foreground "#E8E8E8" :weight bold))))
-   '(erc-dangerous-host-face ((t (:foreground "#E8E8E8" :weight bold))))
-   '(erc-default-face ((t (:foreground "#F6F6F6"))))
-   '(erc-direct-msg-face ((t (:inherit erc-default))))
-   '(erc-error-face ((t (:foreground "#E8E8E8" :weight bold))))
-   '(erc-fool-face ((t (:inherit erc-default))))
-   '(erc-highlight-face ((t (:inherit hover-highlight))))
-   '(erc-input-face ((t (:foreground "#F6F6F6"))))
-   '(erc-keyword-face ((t (:foreground "#E8E8E8" :weight bold))))
-   '(erc-my-nick-face ((t (:foreground "#D9D9D9" :weight bold))))
-   '(erc-nick-default-face ((t (:foreground "#F6F6F6" :weight bold))))
-   '(erc-nick-msg-face ((t (:inherit erc-default))))
-   '(erc-notice-face ((t (:foreground "#C2C2C2"))))
-   '(erc-pal-face ((t (:foreground "#E8E8E8" :weight bold))))
-   '(erc-prompt-face ((t (:foreground "#E8E8E8" :background "#161616" :weight bold))))
-   '(erc-timestamp-face ((t (:foreground "#F6F6F6"))))
-   '(erc-underline-face ((t (:underline t))))
-   '(git-gutter+-modified ((t (:foreground "gray" :weight bold))))
-   '(helm-match ((t (:background nil :foreground "#858D8A"))))
-   '(helm-match-item ((t (:background nil :foreground "#8BE03C"))))
-   '(helm-swoop-target-line-block-face ((t (:foreground "#D4D7D6" :background nil))))
-   '(helm-swoop-target-line-face ((t (:background nil))))
-   '(helm-swoop-target-word-face ((t (:background nil :foreground "#858D8A"))))
-   '(highlight ((t (:background nil))))
-   '(isearch ((t (:foreground "#161616" :weight bold :background "#87ceeb" :box nil))))
-   '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#4f94cd" :box nil))))
-   '(mode-line ((t (:underline nil))))
-   '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
-   '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
-   '(powerline-active2 ((t (:inherit sml/global :background "Black"))))
-   '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "Black"))))
-   '(powerline-inactive2 ((t (:inherit font-lock-comment-face :background "Black"))))
-   '(sml/filename ((((class color) (min-colors 89)) (:foreground "#F0DFAF" :weight bold))))
-   '(sml/folder ((t (:inherit sml/global :background "Black" :foreground "Cyan" :weight normal))))
-   '(sml/git ((t (:inherit (sml/read-only sml/prefix) :foreground "yellow" :background "Black"))))
-   '(sml/name-filling ((t (:inherit sml/prefix :background "Black" :weight normal))))
-   '(sml/position-percentage ((t (:inherit sml/prefix :background "Black" :foreground "Black" :weight normal))))
-   '(sml/prefix ((t (:inherit sml/global :background "Black" :foreground "Cyan"))))
-   '(sml/vc ((t (:inherit sml/git :background "Black" :foreground "Cyan"))))
-   '(sml/vc-edited ((t (:inherit sml/prefix :background "Black" :foreground "Cyan"))))
-   '(which-func ((t (:foreground "Springgreen2"))))
-   '(whitespace-line ((t (:background nil :foreground "IndianRed")))))
-  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
+ '(evil-want-Y-yank-to-eol t)
+ '(package-selected-packages
+   (quote
+    (winum bind-key org-page git mustache blog-admin ctable unfill xkcd wttrin tao-theme seti-theme 2048-game flappymacs typing-game sudoku helm-dash dash-at-point insert-shebang hide-comnt helm-purpose window-purpose imenu-list xterm-color powerline org alert log4e gntp parent-mode projectile gitignore-mode flx anzu goto-chg diminish request pos-tip highlight projectile-rails org-projectile ibuffer-projectile helm-projectile git-commit magit-popup iedit undo-tree yasnippet async s pug-mode minitest dockerfile-mode docker tablist docker-tramp minimal-theme magit-gh-pulls github-search github-clone github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht diff-hl helm-gtags ggtags fasd grizzl auto-complete smartparens evil flycheck company helm helm-core markdown-mode magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(paradox-automatically-star t)
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-echo-common ((t (:foreground "#F6F6F6"))))
+ '(company-preview ((t (:background "#3C3C3C" :foreground "#E8E8E8"))))
+ '(company-preview-common ((t (:inherit company-preview :foreground "#F6F6F6" :weight bold))))
+ '(company-scrollbar-bg ((t (:inherit company-tooltip))))
+ '(company-scrollbar-fg ((t (:background "#616161"))))
+ '(company-tooltip ((t (:background "#3C3C3C" :foreground "#E8E8E8"))))
+ '(company-tooltip-annotation ((t (:foreground "Orange2"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :foreground "#E8E8E8" :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#F6F6F6" :weight bold :underline nil))))
+ '(company-tooltip-selection ((t (:inherit company-tooltip :background "Steelblue3" :foreground "#252525"))))
+ '(erc-action-face ((t (:inherit erc-default-face))))
+ '(erc-bold-face ((t (:weight bold))))
+ '(erc-current-nick-face ((t (:foreground "#E8E8E8" :weight bold))))
+ '(erc-dangerous-host-face ((t (:foreground "#E8E8E8" :weight bold))))
+ '(erc-default-face ((t (:foreground "#F6F6F6"))))
+ '(erc-direct-msg-face ((t (:inherit erc-default))))
+ '(erc-error-face ((t (:foreground "#E8E8E8" :weight bold))))
+ '(erc-fool-face ((t (:inherit erc-default))))
+ '(erc-highlight-face ((t (:inherit hover-highlight))))
+ '(erc-input-face ((t (:foreground "#F6F6F6"))))
+ '(erc-keyword-face ((t (:foreground "#E8E8E8" :weight bold))))
+ '(erc-my-nick-face ((t (:foreground "#D9D9D9" :weight bold))))
+ '(erc-nick-default-face ((t (:foreground "#F6F6F6" :weight bold))))
+ '(erc-nick-msg-face ((t (:inherit erc-default))))
+ '(erc-notice-face ((t (:foreground "#C2C2C2"))))
+ '(erc-pal-face ((t (:foreground "#E8E8E8" :weight bold))))
+ '(erc-prompt-face ((t (:foreground "#E8E8E8" :background "#161616" :weight bold))))
+ '(erc-timestamp-face ((t (:foreground "#F6F6F6"))))
+ '(erc-underline-face ((t (:underline t))))
+ '(git-gutter+-modified ((t (:foreground "gray" :weight bold))))
+ '(helm-match ((t (:background nil :foreground "#858D8A"))))
+ '(helm-match-item ((t (:background nil :foreground "#8BE03C"))))
+ '(helm-swoop-target-line-block-face ((t (:foreground "#D4D7D6" :background nil))))
+ '(helm-swoop-target-line-face ((t (:background nil))))
+ '(helm-swoop-target-word-face ((t (:background nil :foreground "#858D8A"))))
+ '(highlight ((t (:background nil))))
+ '(isearch ((t (:foreground "#161616" :weight bold :background "#87ceeb" :box nil))))
+ '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#4f94cd" :box nil))))
+ '(mode-line ((t (:underline nil))))
+ '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
+ '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
+ '(powerline-active2 ((t (:inherit sml/global :background "Black"))))
+ '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "Black"))))
+ '(powerline-inactive2 ((t (:inherit font-lock-comment-face :background "Black"))))
+ '(sml/filename ((((class color) (min-colors 89)) (:foreground "#F0DFAF" :weight bold))))
+ '(sml/folder ((t (:inherit sml/global :background "Black" :foreground "Cyan" :weight normal))))
+ '(sml/git ((t (:inherit (sml/read-only sml/prefix) :foreground "yellow" :background "Black"))))
+ '(sml/name-filling ((t (:inherit sml/prefix :background "Black" :weight normal))))
+ '(sml/position-percentage ((t (:inherit sml/prefix :background "Black" :foreground "Black" :weight normal))))
+ '(sml/prefix ((t (:inherit sml/global :background "Black" :foreground "Cyan"))))
+ '(sml/vc ((t (:inherit sml/git :background "Black" :foreground "Cyan"))))
+ '(sml/vc-edited ((t (:inherit sml/prefix :background "Black" :foreground "Cyan"))))
+ '(which-func ((t (:foreground "Springgreen2"))))
+ '(whitespace-line ((t (:background nil :foreground "IndianRed")))))
+)
