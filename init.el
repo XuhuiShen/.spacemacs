@@ -29,11 +29,14 @@ values."
      osx
      fasd
      docker
+     dash
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (shell :variables
             shell-default-height 30
             shell-default-position 'right)
-     dash
+     (spacemacs-layouts :variables layouts-enable-autosave t
+                        layouts-autosave-delay 300)
+     (setq eyebrowse-new-workspace (lambda () (helm-find-files)))
 
      ;; text editing
      markdown
@@ -324,7 +327,6 @@ you should place your code here."
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
   (setq paradox-github-token "b1cfe777e1a06371f53dbd834b7f9456a3766dd1") ;; paradox is a enhanced packages list.
-  (setq persp-auto-save-opt 0)
   (setq helm-dash-browser-func 'eww)
   (projectile-mode t)
   (display-time)
