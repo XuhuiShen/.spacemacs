@@ -36,7 +36,6 @@ values."
             shell-default-position 'right)
      (spacemacs-layouts :variables layouts-enable-autosave t
                         layouts-autosave-delay 300)
-     (setq eyebrowse-new-workspace (lambda () (helm-find-files)))
 
      ;; text editing
      markdown
@@ -298,7 +297,10 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default dotspacemacs-themes '(seti))
-  (setq exec-path-from-shell-arguments '("-l"))
+  (setq configuration-layer--elpa-archives
+        '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
+          ("org-cn"   . "https://elpa.zilongshanren.com/org/")
+          ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
   )
 
 (defun dotspacemacs/user-config ()
@@ -330,6 +332,7 @@ you should place your code here."
   (setq helm-dash-browser-func 'eww)
   (projectile-mode t)
   (display-time)
+  (setq eyebrowse-new-workspace (lambda () (helm-find-files)))
   ;;; emacs base setting end
 
   ;;; whitespace mode setting begin
