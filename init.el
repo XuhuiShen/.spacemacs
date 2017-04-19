@@ -339,6 +339,19 @@ you should place your code here."
   (fancy-battery-mode 1)
   ;;; emacs base setting end
 
+  ;;; zone setting start
+  (zone-when-idle 120)
+  (defun zone-choose (pgm)
+    "Choose a PGM to run for `zone'."
+    (interactive
+     (list
+      (completing-read
+       "Program: "
+       (mapcar 'symbol-name zone-programs))))
+    (let ((zone-programs (list (intern pgm))))
+      (zone)))
+  ;;; zone setting end
+
   ;;; whitespace mode setting begin
   (setq whitespace-line-column 80)
   (setq whitespace-style '(face lines-tail))
