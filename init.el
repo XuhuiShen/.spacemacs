@@ -340,7 +340,7 @@ you should place your code here."
   ;;; emacs base setting end
 
   ;;; zone setting start
-  (zone-when-idle 120)
+  (zone-when-idle 360)
   (defun zone-choose (pgm)
     "Choose a PGM to run for `zone'."
     (interactive
@@ -390,6 +390,24 @@ you should place your code here."
        (ruby . t)
        (C . t)
        )))
+
+  (defun make-progress (width percent has-number?)
+    (let* ((done (/ percent 100.0))
+           (done-width (floor (* width done))))
+      (concat
+       "["
+       (make-string done-width ?/)
+       (make-string (- width done-width) ? )
+       "]"
+       (if has-number? (concat " " (number-to-string percent) "%"))
+       )))
+  (defun insert-day-progress ()
+    (interactive)
+    (let* ((today (time-to-day-in-year (current-time)))
+           (percent (floor (* 100 (/ today 365.0)))))
+      (insert (make-progress 30 percent t))
+      ))
+  (global-set-key (kbd "C-M-m i p") 'insert-day-progress)
   ;;; org setting end
 
   ;;; translate setting begin
