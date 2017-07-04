@@ -12,7 +12,7 @@ values."
    ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   ;; Paths must have a trailing slash (i.e. `/Users/shenxuhui/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
@@ -366,9 +366,12 @@ you should place your code here."
   (setq org-startup-truncated nil)
   (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                    (org-agenda-files :maxlevel . 9))))
-  (setq org-directory "~/Workspace/org")
+  (setq org-directory "/Users/shenxuhui/Workspace/org")
   (setq org-default-notes-file "notes.org") ;; for org capture
-  (setq org-agenda-files (quote ("~/Workspace/org")))
+  (setq org-agenda-files (quote ("/Users/shenxuhui/Workspace/org"
+                                 "/Users/shenxuhui/Workspace/org/tech"
+                                 "/Users/shenxuhui/Workspace/org/week-reports"
+                                 "/Users/shenxuhui/Workspace/org/work")))
   (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀"))
   (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
   (setq org-todo-keyword-faces
@@ -377,13 +380,13 @@ you should place your code here."
                 ("CANCELLED" :foreground "RoyalBlue" :weight bold)
                 )))
   (setq org-capture-templates
-        (quote (("t" "todo" entry (file "~/Workspace/org/notes.org")
+        (quote (("t" "todo" entry (file "/Users/shenxuhui/Workspace/org/notes.org")
                  "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-                ("n" "note" entry (file "~/Workspace/org/notes.org")
+                ("n" "note" entry (file "/Users/shenxuhui/Workspace/org/notes.org")
                  "* %? :note:\n%U\n%a\n" :clock-in t :clock-resume t)
-                ("j" "journal" entry (file+datetree "~/Workspace/org/notes.org")
+                ("j" "journal" entry (file+datetree "/Users/shenxuhui/Workspace/org/notes.org")
                  "* %?\n%U\n" :clock-in t :clock-resume t)
-                ("p" "phone call" entry (file "~/Workspace/org/notes.org")
+                ("p" "phone call" entry (file "/Users/shenxuhui/Workspace/org/notes.org")
                  "* phone %? :phone:\n%U" :clock-in t :clock-resume t)
                 )))
   (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
@@ -432,7 +435,7 @@ you should place your code here."
   ;;; cscope and ycmd setting begin
   (setq url-show-status nil)
   (setq request-message-level -1)
-  (set-variable 'ycmd-extra-conf-whitelist '("~/Workspace/c/*"))
+  (set-variable 'ycmd-extra-conf-whitelist '("/Users/shenxuhui/Workspace/c/*"))
   (add-hook 'c-mode-hook 'ycmd-mode)
   (add-hook 'js2-mode-hook 'ycmd-mode)
   (setq company--auto-completion t
