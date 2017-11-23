@@ -24,6 +24,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; spacemacs base
+     theming
      helm
      better-defaults
      osx
@@ -95,10 +96,7 @@ values."
    dotspacemacs-additional-packages '(wttrin
                                       switch-window
                                       youdao-dictionary
-                                      smart-mode-line
-                                      smart-mode-line-powerline-theme
-                                      keyfreq
-                                      2048-game)
+                                      keyfreq)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(magithub)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -155,14 +153,13 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(seti
+   dotspacemacs-themes '(spacemacs-light
                          spacemacs-dark
-                         spacemacs-light
                          solarized-light
                          solarized-dark
                          zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
-   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Monaco"
@@ -299,7 +296,15 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default dotspacemacs-themes '(seti))
+  (setq-default dotspacemacs-themes '(spacemacs-light))
+  (setq theming-modifications
+        '((spacemacs-light
+           ;; cursor
+           (cursor :background "DarkSeaGreen")
+           ;; state color
+           (spacemacs-emacs-face :background "DarkSeaGreen"))
+          )
+        )
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
           ("org-cn"   . "https://elpa.zilongshanren.com/org/")
@@ -376,7 +381,7 @@ you should place your code here."
   (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
   (setq org-todo-keyword-faces
         (quote (("TODO" :foreground "OrangeRed" :weight bold)
-                ("DONE" :foreground "green" :weight bold)
+                ("DONE" :foreground "DarkOrange" :weight bold)
                 ("CANCELLED" :foreground "RoyalBlue" :weight bold)
                 )))
   (setq org-capture-templates
@@ -424,12 +429,11 @@ you should place your code here."
   ;;; translate setting end
 
   ;;; powerline theme setting and smart-mode-line setting begin
-  (setq powerline-default-separator 'arrow)
+  (setq powerline-default-separator 'bar)
   (spaceline-compile)
   (with-eval-after-load 'spaceline-segments
-    (spaceline-toggle-minor-modes-off)
-    (setq sml/theme 'powerline)
-    (sml/setup))
+     (spaceline-toggle-minor-modes-off)
+     )
   ;;; powerline theme and smart-mode-line setting end
 
   ;;; cscope and ycmd setting begin
@@ -530,91 +534,12 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
  '(custom-safe-themes
    (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
- '(evil-want-Y-yank-to-eol t)
- '(exec-path-from-shell-arguments (quote ("-l")))
- '(package-selected-packages
-   (quote
-    (helm-emmet org-brain impatient-mode evil-org org-page sayid ruby-refactor password-generator flycheck-bashate evil-lion editorconfig keyfreq ghub+ apiwrap ghub realgud test-simple loc-changes load-relative string-inflection orgit symon browse-at-remote magithub fuzzy chinese-fonts-setup packed avy dash yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic winum bind-key git mustache blog-admin ctable unfill xkcd wttrin tao-theme seti-theme 2048-game flappymacs typing-game sudoku helm-dash dash-at-point insert-shebang hide-comnt helm-purpose window-purpose imenu-list xterm-color powerline org alert log4e gntp parent-mode projectile gitignore-mode flx anzu goto-chg diminish request pos-tip highlight projectile-rails org-projectile ibuffer-projectile helm-projectile git-commit magit-popup iedit undo-tree yasnippet async s pug-mode minitest dockerfile-mode docker tablist docker-tramp minimal-theme magit-gh-pulls github-search github-clone github-browse-file git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht diff-hl helm-gtags ggtags fasd grizzl auto-complete smartparens evil flycheck company helm helm-core markdown-mode magit with-editor hydra osx-dictionary youdao-dictionary names chinese-word-at-point tao-ying-theme clues-theme ample-theme wgrep smex ivy-hydra flyspell-correct-ivy enh-ruby-mode counsel-projectile counsel swiper ivy web-mode web-beautify tagedit slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-css-scss haml-mode fish-mode feature-mode erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster company-web web-completion-data company-tern dash-functional tern company-shell company-c-headers coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby bundler inf-ruby smart-mode-line-powerline-theme uuidgen org-download mwim link-hint git-link flyspell-correct-helm flyspell-correct evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump f smart-mode-line rich-minority switch-window eyebrowse column-enforce-mode helm-cscope xcscope flycheck-ycmd company-ycmd ycmd request-deferred deferred zenburn-theme ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox page-break-lines osx-trash org-repo-todo org-present org-pomodoro org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
- '(paradox-automatically-star t)
- '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
- '(which-function-mode nil))
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "#151718" :foreground "#D4D7D6"))))
- '(company-echo-common ((t (:foreground "#F6F6F6"))))
- '(company-preview ((t (:background "#3C3C3C" :foreground "#E8E8E8"))))
- '(company-preview-common ((t (:inherit company-preview :foreground "#F6F6F6" :weight bold))))
- '(company-scrollbar-bg ((t (:inherit company-tooltip))))
- '(company-scrollbar-fg ((t (:background "#616161"))))
- '(company-tooltip ((t (:background "#3C3C3C" :foreground "#E8E8E8"))))
- '(company-tooltip-annotation ((t (:foreground "Orange2"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :foreground "#E8E8E8" :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#F6F6F6" :weight bold :underline nil))))
- '(company-tooltip-selection ((t (:inherit company-tooltip :background "Steelblue3" :foreground "#252525"))))
- '(erc-action-face ((t (:inherit erc-default-face))))
- '(erc-bold-face ((t (:weight bold))))
- '(erc-current-nick-face ((t (:foreground "#E8E8E8" :weight bold))))
- '(erc-dangerous-host-face ((t (:foreground "#E8E8E8" :weight bold))))
- '(erc-default-face ((t (:foreground "#F6F6F6"))))
- '(erc-direct-msg-face ((t (:inherit erc-default))))
- '(erc-error-face ((t (:foreground "#E8E8E8" :weight bold))))
- '(erc-fool-face ((t (:inherit erc-default))))
- '(erc-highlight-face ((t (:inherit hover-highlight))))
- '(erc-input-face ((t (:foreground "#F6F6F6"))))
- '(erc-keyword-face ((t (:foreground "#E8E8E8" :weight bold))))
- '(erc-my-nick-face ((t (:foreground "#D9D9D9" :weight bold))))
- '(erc-nick-default-face ((t (:foreground "#F6F6F6" :weight bold))))
- '(erc-nick-msg-face ((t (:inherit erc-default))))
- '(erc-notice-face ((t (:foreground "#C2C2C2"))))
- '(erc-pal-face ((t (:foreground "#E8E8E8" :weight bold))))
- '(erc-prompt-face ((t (:foreground "#E8E8E8" :background "#161616" :weight bold))))
- '(erc-timestamp-face ((t (:foreground "#F6F6F6"))))
- '(erc-underline-face ((t (:underline t))))
- '(git-gutter+-modified ((t (:foreground "gray" :weight bold))))
- '(helm-match ((t (:background nil :foreground "#858D8A"))))
- '(helm-match-item ((t (:background nil :foreground "#8BE03C"))))
- '(helm-swoop-target-line-block-face ((t (:foreground "#D4D7D6" :background nil))))
- '(helm-swoop-target-line-face ((t (:background nil))))
- '(helm-swoop-target-word-face ((t (:background nil :foreground "#858D8A"))))
- '(highlight ((t (:background nil))))
- '(isearch ((t (:foreground "#161616" :weight bold :background "#87ceeb" :box nil))))
- '(lazy-highlight ((t (:foreground "#161616" :weight bold :background "#4f94cd" :box nil))))
- '(mode-line ((t (:underline nil))))
- '(mode-line-buffer-id ((t (:inherit nil :background "Black" :foreground "yellow"))))
- '(powerline-active1 ((t (:inherit sml/global :background "Black"))))
- '(powerline-active2 ((t (:inherit sml/global :background "Black"))))
- '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "Black"))))
- '(powerline-inactive2 ((t (:inherit font-lock-comment-face :background "Black"))))
- '(sml/filename ((((class color) (min-colors 89)) (:foreground "#F0DFAF" :weight bold))))
- '(sml/folder ((t (:inherit sml/global :background "Black" :foreground "Cyan" :weight normal))))
- '(sml/git ((t (:inherit (sml/read-only sml/prefix) :foreground "yellow" :background "Black"))))
- '(sml/name-filling ((t (:inherit sml/prefix :background "Black" :weight normal))))
- '(sml/position-percentage ((t (:inherit sml/prefix :background "Black" :foreground "Black" :weight normal))))
- '(sml/prefix ((t (:inherit sml/global :background "Black" :foreground "Cyan"))))
- '(sml/vc ((t (:inherit sml/git :background "Black" :foreground "Cyan"))))
- '(sml/vc-edited ((t (:inherit sml/prefix :background "Black" :foreground "Cyan"))))
- '(which-func ((t (:foreground "Springgreen2"))))
- '(whitespace-line ((t (:background nil :foreground "IndianRed")))))
-)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (github-browse-file youdao-dictionary yapfify wttrin ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit symon switch-window string-inflection spaceline smeargle smart-mode-line-powerline-theme slim-mode shell-pop seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs realgud rbenv rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails popwin pip-requirements persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-page org-download org-bullets open-junk-file neotree mwim multi-term move-text mmm-mode minitest markdown-toc magithub magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl js2-refactor js-doc insert-shebang info+ indent-guide ibuffer-projectile hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md ggtags fuzzy flyspell-correct-helm flycheck-ycmd flycheck-pos-tip flx-ido fish-mode fill-column-indicator feature-mode fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks enh-ruby-mode emmet-mode elisp-slime-nav dumb-jump dockerfile-mode docker disaster diff-hl dash-at-point cython-mode company-ycmd company-web company-tern company-statistics company-shell company-quickhelp company-c-headers company-anaconda column-enforce-mode coffee-mode cmake-mode clojure-snippets clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby bundler browse-at-remote blog-admin auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell 2048-game))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background "#151718" :foreground "#D4D7D6")))))
+))
