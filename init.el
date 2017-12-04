@@ -377,7 +377,7 @@ you should place your code here."
                                  "/Users/shenxuhui/Workspace/org/tech"
                                  "/Users/shenxuhui/Workspace/org/week-reports"
                                  "/Users/shenxuhui/Workspace/org/work")))
-  (setq org-bullets-bullet-list '("☰" "☷" "⋗" "⇀"))
+  (setq org-bullets-bullet-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
   (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
   (setq org-todo-keyword-faces
         (quote (("TODO" :foreground "OrangeRed" :weight bold)
