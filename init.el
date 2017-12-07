@@ -37,6 +37,11 @@ values."
             shell-default-position 'right)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
+     ;; something may be wrong if you use venv-workon, read spacemacs wakatime layer docs.
+     (wakatime :variables
+               wakatime-api-key  "f6ccb73d-5777-4058-a169-155315c31d33"
+               ;; use the actual wakatime path
+               wakatime-cli-path "/usr/local/bin/wakatime")
 
      ;; text editing
      markdown
