@@ -27,10 +27,6 @@ values."
      theming
      helm
      better-defaults
-     osx
-     fasd
-     docker
-     dash
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (shell :variables
             shell-default-height 30
@@ -44,7 +40,6 @@ values."
                wakatime-cli-path "/usr/local/bin/wakatime")
 
      ;; text editing
-     markdown
      org
 
      ;; checkers
@@ -58,18 +53,8 @@ values."
                       auto-completion-enable-sort-by-usage t
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-snippets-in-popup nil)
-     (ycmd :variables
-           ycmd-server-command '("python" "/Users/shenxuhui/.bin/ycmd/ycmd")
-           ycmd-force-semantic-completion t)
 
      ;; web
-     (ruby :variables
-           ruby-enable-enh-ruby-mode t
-           ruby-version-manager 'rvm
-           ruby-test-runner 'rspec)
-     ruby-on-rails
-     html
-     javascript
      python
 
      ;; orphan languages
@@ -87,12 +72,12 @@ values."
 
      ;; source control
      git
-     github
+     ;; github
      (version-control :variables version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
 
      ;; personal layer
-     blog
+     ;; blog
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -158,11 +143,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dark
-                         solarized-light
-                         solarized-dark
-                         zenburn)
+   dotspacemacs-themes '(spacemacs-dark
+                         spacemacs-light
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -301,15 +284,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default dotspacemacs-themes '(spacemacs-light))
-  (setq theming-modifications
-        '((spacemacs-light
-           ;; cursor
-           (cursor :background "DarkSeaGreen")
-           ;; state color
-           (spacemacs-emacs-face :background "DarkSeaGreen"))
-          )
-        )
+  (setq-default dotspacemacs-themes '(spacemacs-dark))
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
           ("org-cn"   . "https://elpa.zilongshanren.com/org/")
@@ -328,7 +303,6 @@ you should place your code here."
   (global-set-key (kbd "C-SPC") nil)
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
-  (global-set-key (kbd "C-c j") 'fasd-find-file)
   (global-set-key (kbd "C-c e") 'iedit-mode)
   (global-set-key (kbd "C-c w") 'subword-mode)
   (global-set-key (kbd "C-c r") 'rename-buffer)
@@ -343,7 +317,6 @@ you should place your code here."
   (setq dotspacemacs-which-key-delay 1.7)
   (setq op/confound-email nil)
   (setq paradox-github-token "bc58bd5dce0f60e626b6efe3163b089dd2ea1051") ;; paradox is a enhanced packages list.
-  (setq helm-dash-browser-func 'eww)
   (projectile-mode t)
   (display-time)
   (setq eyebrowse-new-workspace (lambda () (helm-find-files)))
@@ -352,80 +325,12 @@ you should place your code here."
   (keyfreq-autosave-mode 1)
   ;;; emacs base setting end
 
-  ;;; zone setting start
-  ;; (zone-when-idle 360)
-  ;; (defun zone-choose (pgm)
-  ;;   "Choose a PGM to run for `zone'."
-  ;;   (interactive
-  ;;    (list
-  ;;     (completing-read
-  ;;      "Program: "
-  ;;      (mapcar 'symbol-name zone-programs))))
-  ;;   (let ((zone-programs (list (intern pgm))))
-  ;;     (zone)))
-  ;;; zone setting end
-
   ;;; whitespace mode setting begin
   (setq whitespace-line-column 80)
   (setq whitespace-style '(face lines-tail))
   (add-hook 'c-mode-hook 'whitespace-mode)
   (add-hook 'c++-mode-hook 'whitespace-mode)
   ;;; whitespace mode setting end
-
-  ;;; org setting begin
-  (setq org-startup-truncated nil)
-  (setq org-refile-targets (quote ((nil :maxlevel . 9)
-                                   (org-agenda-files :maxlevel . 9))))
-  (setq org-directory "/Users/shenxuhui/Workspace/org")
-  (setq org-default-notes-file "notes.org") ;; for org capture
-  (setq org-agenda-files (quote ("/Users/shenxuhui/Workspace/org"
-                                 "/Users/shenxuhui/Workspace/org/tech"
-                                 "/Users/shenxuhui/Workspace/org/week-reports"
-                                 "/Users/shenxuhui/Workspace/org/work")))
-  (setq org-bullets-bullet-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
-  (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
-  (setq org-todo-keyword-faces
-        (quote (("TODO" :foreground "OrangeRed" :weight bold)
-                ("DONE" :foreground "DarkOrange" :weight bold)
-                ("CANCELLED" :foreground "RoyalBlue" :weight bold)
-                )))
-  (setq org-capture-templates
-        (quote (("t" "todo" entry (file "/Users/shenxuhui/Workspace/org/notes.org")
-                 "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-                ("n" "note" entry (file "/Users/shenxuhui/Workspace/org/notes.org")
-                 "* %? :note:\n%U\n%a\n" :clock-in t :clock-resume t)
-                ("j" "journal" entry (file+datetree "/Users/shenxuhui/Workspace/org/notes.org")
-                 "* %?\n%U\n" :clock-in t :clock-resume t)
-                ("p" "phone call" entry (file "/Users/shenxuhui/Workspace/org/notes.org")
-                 "* phone %? :phone:\n%U" :clock-in t :clock-resume t)
-                )))
-  (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
-  (with-eval-after-load 'org
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((sh . t)
-       (ruby . t)
-       (C . t)
-       )))
-
-  (defun make-progress (width percent has-number?)
-    (let* ((done (/ percent 100.0))
-           (done-width (floor (* width done))))
-      (concat
-       "["
-       (make-string done-width ?/)
-       (make-string (- width done-width) ? )
-       "]"
-       (if has-number? (concat " " (number-to-string percent) "%"))
-       )))
-  (defun insert-day-progress ()
-    (interactive)
-    (let* ((today (time-to-day-in-year (current-time)))
-           (percent (floor (* 100 (/ today 365.0)))))
-      (insert (make-progress 30 percent t))
-      ))
-  (global-set-key (kbd "C-M-m i p") 'insert-day-progress)
-  ;;; org setting end
 
   ;;; translate setting begin
   (setq google-translate-default-source-language "en")
@@ -441,26 +346,16 @@ you should place your code here."
      )
   ;;; powerline theme and smart-mode-line setting end
 
-  ;;; cscope and ycmd setting begin
-  (setq url-show-status nil)
-  (setq request-message-level -1)
-  (set-variable 'ycmd-extra-conf-whitelist '("/Users/shenxuhui/Workspace/c/*"))
-  (add-hook 'c-mode-hook 'ycmd-mode)
-  (add-hook 'js2-mode-hook 'ycmd-mode)
+  ;;; cscope and company setting begin
   (setq company--auto-completion t
         company-show-numbers t)
-  (define-key global-map (kbd "C-c y g")  'ycmd-goto)
-  (define-key global-map (kbd "C-c y d")  'ycmd-goto-definition)
-  (define-key global-map (kbd "C-c y l")  'ycmd-load-conf-file)
-  (define-key global-map (kbd "C-c y o")  'ycmd-open)
   (add-hook 'c-mode-common-hook 'helm-cscope-mode)
   (with-eval-after-load 'cc-mode
     (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
     (define-key c-mode-base-map (kbd "C-c g d")  'helm-cscope-find-global-definition)
     (define-key c-mode-base-map (kbd "C-c g C")  'helm-cscope-find-called-function)
-    ;; funtcion != function the bug of spelling. Here uses g(c) and G(C) for convenience.
-    (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-calling-this-funtcion))
-  ;;; cscope and ycmd setting end
+    (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-calling-this-function))
+  ;;; cscope and company setting end
 
   ;;; hs function setting begin
   ;; h means hide, s means show
@@ -541,13 +436,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag flyspell-correct-helm ace-jump-helm-line youdao-dictionary yapfify xcscope wttrin ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit symon switch-window string-inflection spaceline smex smeargle slim-mode shell-pop scss-mode sayid sass-mode rvm ruby-tools ruby-test-mode ruby-refactor rubocop rspec-mode robe reveal-in-osx-finder restart-emacs realgud rbenv rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails popwin pip-requirements persp-mode pbcopy password-generator paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-page org-download org-bullets org-brain open-junk-file neotree mwim multi-term move-text mmm-mode minitest markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl keyfreq js2-refactor js-doc ivy-purpose ivy-hydra insert-shebang info+ indent-guide impatient-mode ibuffer-projectile hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make google-translate golden-ratio gnuplot gitignore-mode github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md ggtags fuzzy flyspell-correct-ivy flycheck-ycmd flycheck-pos-tip flycheck-bashate flx-ido fish-mode fill-column-indicator feature-mode fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks enh-ruby-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode docker disaster diff-hl dash-at-point cython-mode counsel-projectile counsel-dash company-ycmd company-web company-tern company-statistics company-shell company-quickhelp company-c-headers company-anaconda column-enforce-mode coffee-mode cmake-mode cmake-ide clojure-snippets clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby bundler browse-at-remote blog-admin auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
- '(paradox-automatically-star t))
+    (zenburn-theme solarized-theme youdao-dictionary yasnippet-snippets yapfify wttrin ws-butler winum which-key wakatime-mode volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org symon switch-window string-inflection spaceline-all-the-icons smeargle shell-pop sayid restart-emacs realgud rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless mwim multi-term move-text magit-gitflow macrostep lorem-ipsum live-py-mode linum-relative link-hint keyfreq insert-shebang indent-guide importmagic ibuffer-projectile hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-cscope helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ ggtags fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-bashate flx-ido fish-mode fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks elisp-slime-nav editorconfig dumb-jump disaster diminish diff-hl define-word cython-mode counsel-projectile company-ycmd company-statistics company-shell company-rtags company-quickhelp company-c-headers company-anaconda column-enforce-mode clojure-snippets clojure-cheatsheet clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu centered-cursor-mode browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cursor ((t (:background "DarkSeaGreen"))))
- '(spacemacs-emacs-face ((t (:background "DarkSeaGreen")))))
+ )
 )
