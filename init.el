@@ -285,6 +285,14 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default dotspacemacs-themes '(spacemacs-dark))
+  (setq theming-modifications
+        '((spacemacs-dark
+           ;; cursor
+           (cursor :background "Yellow3")
+           ;; state color
+           (spacemacs-emacs-face :background "Purple1"))
+          )
+        )
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
           ("org-cn"   . "https://elpa.zilongshanren.com/org/")
@@ -421,7 +429,7 @@ you should place your code here."
             (lambda ()
               (setq indent-tabs-mode t)
               (c-set-style "linux-tabs-only")))
-  ;;; c-mode setting begin
+  ;;; c-mode setting end
   )
 
 (defun dotspacemacs/emacs-custom-settings ()
