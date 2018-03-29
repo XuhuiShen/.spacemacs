@@ -17,7 +17,7 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(
+   '(octave
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -326,6 +326,9 @@ you should place your code here."
   ;;; emacs base setting begin
   (global-unset-key (kbd "C-x m"))
   (global-set-key (kbd "C-SPC") nil)
+  (global-set-key (kbd "C-x f") 'find-file-other-window)
+  (global-set-key (kbd "C-x C-o") 'switch-window)
+  (global-set-key (kbd "C-x C-k") 'kill-buffer)
   (global-set-key (kbd "C-c s") 'ace-swap-window)
   (global-set-key (kbd "C-c C-q") 'read-only-mode)
   (global-set-key (kbd "C-c j") 'fasd-find-file)
@@ -458,8 +461,7 @@ you should place your code here."
     (define-key c-mode-base-map (kbd "C-c g s")  'helm-cscope-find-this-symbol)
     (define-key c-mode-base-map (kbd "C-c g d")  'helm-cscope-find-global-definition)
     (define-key c-mode-base-map (kbd "C-c g C")  'helm-cscope-find-called-function)
-    ;; funtcion != function the bug of spelling. Here uses g(c) and G(C) for convenience.
-    (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-calling-this-funtcion))
+    (define-key c-mode-base-map (kbd "C-c g c")  'helm-cscope-find-calling-this-function))
   ;;; cscope and ycmd setting end
 
   ;;; hs function setting begin
@@ -541,8 +543,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag flyspell-correct-helm ace-jump-helm-line youdao-dictionary yapfify xcscope wttrin ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit symon switch-window string-inflection spaceline smex smeargle slim-mode shell-pop scss-mode sayid sass-mode rvm ruby-tools ruby-test-mode ruby-refactor rubocop rspec-mode robe reveal-in-osx-finder restart-emacs realgud rbenv rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails popwin pip-requirements persp-mode pbcopy password-generator paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-page org-download org-bullets org-brain open-junk-file neotree mwim multi-term move-text mmm-mode minitest markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl keyfreq js2-refactor js-doc ivy-purpose ivy-hydra insert-shebang info+ indent-guide impatient-mode ibuffer-projectile hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make google-translate golden-ratio gnuplot gitignore-mode github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md ggtags fuzzy flyspell-correct-ivy flycheck-ycmd flycheck-pos-tip flycheck-bashate flx-ido fish-mode fill-column-indicator feature-mode fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks enh-ruby-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode docker disaster diff-hl dash-at-point cython-mode counsel-projectile counsel-dash company-ycmd company-web company-tern company-statistics company-shell company-quickhelp company-c-headers company-anaconda column-enforce-mode coffee-mode cmake-mode cmake-ide clojure-snippets clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby bundler browse-at-remote blog-admin auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
- '(paradox-automatically-star t))
+    (counsel-gtags orgit org-present org-brain youdao-dictionary yasnippet-snippets yapfify wttrin ws-butler winum which-key web-mode web-beautify wakatime-mode volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit symon switch-window string-inflection spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sayid sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe reveal-in-osx-finder restart-emacs realgud rbenv rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails popwin pippel pipenv pip-requirements persp-mode pbcopy password-generator paradox overseer osx-trash osx-dictionary org-projectile org-pomodoro org-page org-mime org-download org-bullets open-junk-file neotree nameless mwim multi-term move-text mmm-mode minitest markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl keyfreq js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode ibuffer-projectile hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio gnuplot github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md ggtags fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-bashate flx-ido fish-mode fill-column-indicator feature-mode fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks enh-ruby-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode docker disaster diminish diff-hl dash-at-point cython-mode counsel-projectile company-ycmd company-web company-tern company-statistics company-shell company-rtags company-quickhelp company-c-headers company-anaconda column-enforce-mode coffee-mode clojure-snippets clojure-cheatsheet clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby centered-cursor-mode bundler browse-at-remote blog-admin auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
