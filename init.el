@@ -379,11 +379,11 @@ you should place your code here."
   (setq org-startup-truncated nil)
   (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                    (org-agenda-files :maxlevel . 9))))
+  (setq org-archive-location "/Users/shenxuhui/Workspace/org/archives/%s_archive::")
   (setq org-directory "/Users/shenxuhui/Workspace/org")
   (setq org-default-notes-file "notes.org") ;; for org capture
   (setq org-agenda-files (quote ("/Users/shenxuhui/Workspace/org"
                                  "/Users/shenxuhui/Workspace/org/tech"
-                                 "/Users/shenxuhui/Workspace/org/week-reports"
                                  "/Users/shenxuhui/Workspace/org/work")))
   (setq org-bullets-bullet-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
   (setq org-todo-keywords (quote ((sequence "TODO(t)" "CANCELLED(c@/!)" "DONE(d@/!)"))))
@@ -528,7 +528,7 @@ you should place your code here."
             (lambda ()
               (setq indent-tabs-mode t)
               (c-set-style "linux-tabs-only")))
-  ;;; c-mode setting begin
+  ;;; c-mode setting end
   )
 
 (defun dotspacemacs/emacs-custom-settings ()
